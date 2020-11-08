@@ -1,22 +1,22 @@
 #! zsh
 
-sed -i "" -e "s/Backendapitemplatetest/$1Test/" -e "s/Backendapitemplate/$1/" .gitignore
-sed -i "" "s/Backendapitemplatetest/$1Test/" Backendapitemplatetest/Backendapitemplatetest.csproj
-sed -i "" "s/Backendapitemplate/$1/" Backendapitemplate/Backendapitemplate.csproj
-sed -i "" "s/Backendapitemplatetest/$1Test/" Backendapitemplatetest/UnitTest1.cs
-sed -i "" "s/Backendapitemplate/$1/" Backendapitemplate/Class1.cs Backendapitemplatetest/UnitTest1.cs
-sed -i "" "s/Backendapitemplate/$1/g" Backendapitemplatetest/Backendapitemplatetest.csproj
-sed -i "" "s/Backendapitemplatetest/$1Test/g" Backendapitemplate.sln
-sed -i "" "s/Backendapitemplate/$1/g" Backendapitemplate.sln
+sed -i "" -e "s/BackEndApiTemplateTest/$1Test/" -e "s/backendapitemplate/$1/" .gitignore
+sed -i "" "s/backendapitemplatetest/$1Test/" backendapitemplatetest/backendapitemplatetest.csproj
+sed -i "" "s/backendapitemplate/$1/" backendapitemplate/backendapitemplate.csproj
+sed -i "" "s/BackEndApiTemplateTest/$1Test/" backendapitemplatetest/UnitTest1.cs
+sed -i "" "s/BackEndApiTemplate/$1/" backendapitemplate/Class1.cs backendapitemplatetest/UnitTest1.cs
+sed -i "" "s/backendapitemplate/$1/g" backendapitemplatetest/backendapitemplatetest.csproj
+sed -i "" "s/backendapitemplatetest/$1Test/g" backendapitemplate.sln
+sed -i "" "s/backendapitemplate/$1/g" backendapitemplate.sln
 
-mv Backendapitemplatetest/Backendapitemplatetest.csproj Backendapitemplatetest/$1Test.csproj
-mv Backendapitemplate/Backendapitemplate.csproj Backendapitemplate/$1.csproj
-mv Backendapitemplatetest $1Test
-mv Backendapitemplate $1
-mv Backendapitemplate.sln $1.sln
-mv .vs/Backendapitemplate .vs/$1
+mv backendapitemplatetest/backendapitemplatetest.csproj backendapitemplatetest/$1Test.csproj
+mv backendapitemplate/backendapitemplate.csproj backendapitemplate/$1.csproj
+mv backendapitemplatetest $1Test
+mv backendapitemplate $1
+mv backendapitemplate.sln $1.sln
+mv .vs/backendapitemplate .vs/$1
 
 rm README.md
 rm rename.sh
 git add .
-git commit -m "chore: rename project to $1"
+#! git commit -m "chore: rename project to $1"
