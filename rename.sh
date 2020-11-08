@@ -16,7 +16,7 @@ mv BackEndApiTemplate $1
 mv BackEndApiTemplate.sln $1.sln
 # mv .vs/backendapitemplate .vs/$1
 
-# rm README.md
-# rm rename.sh
-# git add .
-#! git commit -m "chore: rename project to $1"
+rm README.md
+rm rename.sh
+git add .
+! git commit -m "chore: rename project to $1"
