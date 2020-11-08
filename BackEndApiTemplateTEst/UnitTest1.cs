@@ -8,7 +8,6 @@ namespace BackEndApiTemplateTEst
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
