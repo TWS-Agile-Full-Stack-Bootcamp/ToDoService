@@ -1,19 +1,19 @@
 #! zsh
 
-# sed -i "" -e "s/BackEndApiTemplateTest/$1Test/" -e "s/backendapitemplate/$1/" .gitignore
-# sed -i "" "s/backendapitemplatetest/$1Test/" backendapitemplatetest/backendapitemplatetest.csproj
-# sed -i "" "s/backendapitemplate/$1/" backendapitemplate/backendapitemplate.csproj
-# sed -i "" "s/BackEndApiTemplateTest/$1Test/" backendapitemplatetest/UnitTest1.cs
-# sed -i "" "s/BackEndApiTemplate/$1/" backendapitemplate/Class1.cs backendapitemplatetest/UnitTest1.cs
-# sed -i "" "s/backendapitemplate/$1/g" backendapitemplatetest/backendapitemplatetest.csproj
-sed -i "" "s/backendapitemplatetest/$1Test/g" backendapitemplate.sln
-sed -i "" "s/backendapitemplate/$1/g" backendapitemplate.sln
+sed -i "" -e "s/BackEndApiTemplateTest/$1Test/" -e "s/BackEndApiTemplate/$1/" .gitignore
+sed -i "" "s/BackEndApiTemplateTest/$1Test/" BackEndApiTemplateTest/BackEndApiTemplateTest.csproj
+sed -i "" "s/backendapitemplate/$1/" BackEndApiTemplate/BackEndApiTemplate.csproj
+sed -i "" "s/BackEndApiTemplateTest/$1Test/" BackEndApiTemplateTest/UnitTest1.cs
+sed -i "" "s/BackEndApiTemplate/$1/" BackEndApiTemplate/Startup.cs  BackEndApiTemplate/Program.cs BackEndApiTemplate/Controllers/HelloController.cs
+sed -i "" "s/BackEndApiTemplateTest/$1/g" BackEndApiTemplateTest/BackEndApiTemplateTest.csproj
+sed -i "" "s/BackEndApiTemplateTest/$1Test/g" BackEndApiTemplate.sln
+sed -i "" "s/BackEndApiTemplate/$1/g" BackEndApiTemplate.sln
 
-# mv backendapitemplatetest/backendapitemplatetest.csproj backendapitemplatetest/$1Test.csproj
-# mv backendapitemplate/backendapitemplate.csproj backendapitemplate/$1.csproj
-# mv backendapitemplatetest $1Test
-# mv backendapitemplate $1
-mv backendapitemplate.sln $1.sln
+mv BackEndApiTemplateTest/BackEndApiTemplateTest.csproj BackEndApiTemplateTest/$1Test.csproj
+mv BackEndApiTemplate/BackEndApiTemplate.csproj BackEndApiTemplate/$1.csproj
+mv BackEndApiTemplateTest $1Test
+mv BackEndApiTemplate $1
+mv BackEndApiTemplate.sln $1.sln
 # mv .vs/backendapitemplate .vs/$1
 
 # rm README.md
