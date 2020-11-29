@@ -1,4 +1,34 @@
 <h1>
     This is list-todoitem page!
-</h1>   
-
+</h1>
+<table>
+    <tr>
+        <td>
+            Id
+        </td>
+        <td>
+            Title
+        </td>
+        <td>
+            Description
+        </td>
+        <td>
+            Actionn
+        </td>
+    </tr>
+    <tr *ngFor='let todoItem of toDoItems'>
+        <td>
+            {{todoItem.id}}
+        </td>
+        <td>
+            {{todoItem.title}}
+        </td>
+        <td>
+            {{todoItem.description}}
+        </td>
+        <td>
+            <button>Update</button>
+            <button>Delete</button>
+        </td>
+    </tr>
+</table>
