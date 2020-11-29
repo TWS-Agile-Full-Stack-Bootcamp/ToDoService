@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { CreateTodoitemComponent } from './create-todoitem/create-todoitem.component';
 import { ListTodoitemComponent } from './list-todoitem/list-todoitem.component';
+import { UpdateTodoitemComponent } from './update-todoitem/update-todoitem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     CreateTodoitemComponent,
-    ListTodoitemComponent
+    ListTodoitemComponent,
+    UpdateTodoitemComponent
   ],
   imports: [
     BrowserModule,
