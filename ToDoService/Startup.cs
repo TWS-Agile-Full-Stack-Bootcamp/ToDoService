@@ -27,6 +27,15 @@ namespace ToDoService
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", p =>
+                {
+                    p.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +45,7 @@ namespace ToDoService
             {
                 app.UseDeveloperExceptionPage();
             }
-             
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -48,6 +57,7 @@ namespace ToDoService
             });
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
 
             app.UseRouting();
 
