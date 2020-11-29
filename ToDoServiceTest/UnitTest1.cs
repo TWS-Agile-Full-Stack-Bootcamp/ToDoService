@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace BackEndApiTemplateTest
+namespace ToDoServiceTest
 {
     public class UnitTest1
     {
