@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BackEndApiTemplate": {
+    "ToDoService": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
