@@ -19,4 +19,8 @@ export class TodoService {
   public get ToDoItems(): Array<ToDoItem> {
     return this.todoItems;
   }
+
+  public Create(todoItem: ToDoItem){
+    this.todoItems.push(todoItem);
+  }
 }

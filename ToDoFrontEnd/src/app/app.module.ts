@@ -7,6 +7,7 @@ import { CreateTodoitemComponent } from './create-todoitem/create-todoitem.compo
 import { ListTodoitemComponent } from './list-todoitem/list-todoitem.component';
 import { UpdateTodoitemComponent } from './update-todoitem/update-todoitem.component';
 import { TodoitemDetailComponent } from './todoitem-detail/todoitem-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { TodoitemDetailComponent } from './todoitem-detail/todoitem-detail.compo
     CreateTodoitemComponent,
     ListTodoitemComponent,
     UpdateTodoitemComponent,
-    TodoitemDetailComponent
+    TodoitemDetailComponent,    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
