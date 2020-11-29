@@ -9,13 +9,14 @@ import { TodoService } from '../service/todo.service';
 })
 export class ListTodoitemComponent implements OnInit {
 
-  constructor(private todoService: TodoService) { }
+
+  public toDoItems: ToDoItem[]
+
+  constructor(private todoService: TodoService) { 
+    this.toDoItems = [];
+  }
 
   ngOnInit(): void {
+    this.toDoItems =  this.todoService.ToDoItems;
   }
-
-  public get toDoItems(): Array<ToDoItem> {
-    return this.todoService.ToDoItems;
-  }
-
 }
