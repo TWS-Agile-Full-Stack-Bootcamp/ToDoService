@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateTodoitemComponent } from './create-todoitem/create-todoitem.component';
 import { ListTodoitemComponent } from './list-todoitem/list-todoitem.component';
-import { UpdateTodoitemComponent } from './update-todoitem/update-todoitem.component';
 import { TodoitemDetailComponent } from './todoitem-detail/todoitem-detail.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.component';
@@ -15,7 +14,6 @@ import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.com
     AppComponent,
     CreateTodoitemComponent,
     ListTodoitemComponent,
-    UpdateTodoitemComponent,
     TodoitemDetailComponent,
     UpdateTodoItemComponent,    
   ],

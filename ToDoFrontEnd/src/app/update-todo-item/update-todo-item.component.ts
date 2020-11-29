@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDoItem } from '../model/ToDoItem';
+import { TodoService } from '../service/todo.service';
 
 @Component({
   selector: 'app-update-todo-item',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateTodoItemComponent implements OnInit {
 
-  constructor() { }
+public updatingToDoItem: ToDoItem;
+
+  constructor(private todoItemService: TodoService) { 
+    this.updatingToDoItem = new ToDoItem(1, "", "", false);
+    this.updatingToDoItem = this.todoItemService.updatingToDoItem;
+  }
 
   ngOnInit(): void {
   }
 
+  public updateTodoItem(): void{
+    this.todoItemService.UpdateTodoItem();
+  }
 }

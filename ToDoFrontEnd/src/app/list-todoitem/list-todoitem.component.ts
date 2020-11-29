@@ -12,11 +12,15 @@ export class ListTodoitemComponent implements OnInit {
 
   public toDoItems: ToDoItem[]
 
-  constructor(private todoService: TodoService) { 
+  constructor(private todoService: TodoService) {
     this.toDoItems = [];
   }
 
   ngOnInit(): void {
-    this.toDoItems =  this.todoService.ToDoItems;
+    this.toDoItems = this.todoService.ToDoItems;
+  }
+
+  public updateTodoItem(todoItem: ToDoItem): void {
+    this.todoService.SetUpdatingTodoItemId(todoItem.id);
   }
 }

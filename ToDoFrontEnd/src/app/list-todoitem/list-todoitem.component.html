@@ -13,6 +13,9 @@
             Description
         </td>
         <td>
+            IsDone
+        </td>
+        <td>
             Actionn
         </td>
     </tr>
@@ -27,7 +30,10 @@
             {{todoItem.description}}
         </td>
         <td>
-            <button>Update</button>
+            {{todoItem.isDone}}
+        </td>
+        <td>
+            <button (click)="updateTodoItem(todoItem)">Update</button>
             <button>Delete</button>
         </td>
     </tr>
