@@ -23,7 +23,7 @@ export class TodoService {
   }
 
   public get todoItems(): Array<ToDoItem> {
-    return this._todoItems;
+    return this.todoStore.GetAll();
   }
 
   public SetUpdatingTodoItemId(id: number): void {
