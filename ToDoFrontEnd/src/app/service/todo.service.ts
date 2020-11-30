@@ -40,12 +40,13 @@ export class TodoService {
   }
 
   public UpdateTodoItem(updateTodoItems: ToDoItem): void {
-    const foundTodoItem = this._todoItems.find(item => item.id === updateTodoItems.id);
-    if (foundTodoItem) {
-      foundTodoItem.description = this.updatingToDoItem.description;
-      foundTodoItem.isDone = this.updatingToDoItem.isDone;
-      foundTodoItem.title = this.updatingToDoItem.title;
-    }
+    // const foundTodoItem = this._todoItems.find(item => item.id === updateTodoItems.id);
+    // if (foundTodoItem) {
+    //   foundTodoItem.description = this.updatingToDoItem.description;
+    //   foundTodoItem.isDone = this.updatingToDoItem.isDone;
+    //   foundTodoItem.title = this.updatingToDoItem.title;
+    // }
+    this.todoStore.Update(updateTodoItems)
   }
 
   public DeleteTodoItem(id: number):void{    

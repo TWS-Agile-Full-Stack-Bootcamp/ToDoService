@@ -30,4 +30,13 @@ export class TodoStoreService {
   public Create(newTodoItem: ToDoItem): void{
     this._todoItems.push(newTodoItem);
   }
+
+  public Update(updateTodoItem: ToDoItem): void{
+    const foundTodoItem = this._todoItems.find(item => item.id === updateTodoItem.id);
+    if (foundTodoItem) {
+      foundTodoItem.description = updateTodoItem.description;
+      foundTodoItem.isDone = updateTodoItem.isDone;
+      foundTodoItem.title = updateTodoItem.title;
+    }    
+  }
 }
