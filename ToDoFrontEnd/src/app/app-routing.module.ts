@@ -9,7 +9,7 @@ export const routes: Routes = [
   { path: "", redirectTo: '/index', pathMatch: 'full' },
   { path: "index", component: ListTodoitemComponent },
   { path: "create", component: CreateTodoitemComponent },
-  { path: "detail", component: TodoitemDetailComponent },
+  { path: "detail/:id", component: TodoitemDetailComponent },
   { path: "edit/:id", component: UpdateTodoItemComponent },
 ];
 
