@@ -8,6 +8,7 @@ import { ListTodoitemComponent } from './list-todoitem/list-todoitem.component';
 import { TodoitemDetailComponent } from './todoitem-detail/todoitem-detail.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
