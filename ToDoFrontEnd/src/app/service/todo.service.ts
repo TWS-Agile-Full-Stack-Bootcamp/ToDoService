@@ -10,6 +10,8 @@ export class TodoService {
 
   private updatingTodoItemId: number;
   public updatingToDoItem: ToDoItem;
+  public selectedTodoItem: ToDoItem;
+  private currentId: number = 0;
 
   constructor() {
     this.todoItems.push(new ToDoItem(1, "Task1", "Task1 description", false));
@@ -17,8 +19,10 @@ export class TodoService {
     this.todoItems.push(new ToDoItem(3, "Task3", "Task3 description", false));
     this.todoItems.push(new ToDoItem(4, "Task4", "Task4 description", false));
     this.todoItems.push(new ToDoItem(5, "Task5", "Task5 description", false));
-    this.updatingTodoItemId = 0;
-    this.updatingToDoItem = new ToDoItem(0, "", "", false);
+    this.updatingTodoItemId = -1;
+    this.updatingToDoItem = new ToDoItem(-1, "", "", false);
+    this.selectedTodoItem = new ToDoItem(-1, "", "", false);
+    this.currentId = this.todoItems.length + 1;
   }
 
   public get ToDoItems(): Array<ToDoItem> {
@@ -34,7 +38,10 @@ export class TodoService {
   }
 
   public Create(todoItem: ToDoItem) {
-    this.todoItems.push(todoItem);
+    todoItem.id = this.currentId;
+    var newTodoItem = Object.assign({}, todoItem);
+    this.todoItems.push(newTodoItem);
+    this.currentId++;
   }
 
   public UpdateTodoItem(): void {
@@ -43,6 +50,13 @@ export class TodoService {
       foundTodoItem.description = this.updatingToDoItem.description;
       foundTodoItem.isDone = this.updatingToDoItem.isDone;
       foundTodoItem.title = this.updatingToDoItem.title;
+    }
+  }
+
+  public DeleteTodoItem(id: number):void{    
+    const index = this.todoItems.findIndex(item => item.id === id);
+    if (index >= 0) {
+      this.todoItems.splice(index, 1);
     }
   }
 }
