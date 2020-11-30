@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToDoItem } from '../model/ToDoItem';
+import { TodoHttpclientService } from './todo-httpclient.service';
 import { TodoStoreService } from './todo-store.service';
 
 @Injectable({
@@ -13,15 +14,20 @@ export class TodoService {
 
   private _todoItems: Array<ToDoItem>;
 
-  constructor(private todoStore: TodoStoreService) {
-    this._todoItems = todoStore.GetAll();
+  constructor(private todoStore: TodoStoreService,
+    private todoHttpClient: TodoHttpclientService) {
+    this._todoItems = new Array<ToDoItem>();
     this.updatingToDoItem = new ToDoItem(-1, "", "", false);
     this.selectedTodoItem = new ToDoItem(-1, "", "", false);
-    this.currentId = this.todoItems.length;
+    this.currentId = this._todoItems.length;
   }
 
   public get todoItems(): Array<ToDoItem> {
-    return this.todoStore.GetAll();
+    this.todoHttpClient.GetAll().subscribe(items =>{
+      this._todoItems = [];
+      this._todoItems.push(...items);
+    });
+    return this._todoItems;
   }
 
   public SetUpdatingTodoItemId(id: number): void {
