@@ -17,7 +17,7 @@ export class ListTodoitemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.toDoItems = this.todoService.ToDoItems;
+    this.toDoItems = this.todoService.todoItems;
   }
 
   public updateTodoItem(todoItem: ToDoItem): void {

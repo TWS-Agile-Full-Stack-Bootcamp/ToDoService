@@ -9,17 +9,13 @@ import { TodoService } from '../service/todo.service';
 })
 export class UpdateTodoItemComponent implements OnInit {
 
-public updatingToDoItem: ToDoItem;
-
-  constructor(private todoItemService: TodoService) { 
-    this.updatingToDoItem = new ToDoItem(1, "", "", false);
-    this.updatingToDoItem = this.todoItemService.updatingToDoItem;
+  constructor(public todoItemService: TodoService) { 
   }
 
   ngOnInit(): void {
   }
 
   public updateTodoItem(): void{
-    this.todoItemService.UpdateTodoItem();
+    this.todoItemService.UpdateTodoItem(this.todoItemService.updatingToDoItem);
   }
 }
