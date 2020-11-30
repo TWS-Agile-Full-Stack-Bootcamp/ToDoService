@@ -1,10 +1,12 @@
-import { TestBed, tick } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { defer, of } from 'rxjs';
 import { ToDoItem } from '../model/ToDoItem';
 import { TodoHttpclientService } from './todo-httpclient.service';
 import { TodoStoreService } from './todo-store.service';
 
 import { TodoService } from './todo.service';
+
 
 describe('TodoService', () => {
   let service: TodoService;
@@ -36,7 +38,7 @@ describe('TodoService', () => {
 
   it('should create todo-item', () => {
     const newTodoItem = new ToDoItem(10, "new todo", "new todo description", false);
-    
+
     httpClientSpy.post.and.returnValue(of(newTodoItem));
     service.Create(newTodoItem);
 
@@ -48,10 +50,31 @@ describe('TodoService', () => {
     updateTodoItem.description = "updated description";
     updateTodoItem.title = "updated title";
     updateTodoItem.isDone = true;
-    
+
     httpClientSpy.put.and.returnValue(of(updateTodoItem));
     service.UpdateTodoItem(updateTodoItem);
-    
+
     expect(httpClientSpy.put.calls.count()).toBe(1, 'one call');
   });
+
+
+  it('should catch exception when update todo-item', fakeAsync(() => {
+    const updateTodoItem = new ToDoItem(1, "", "", false);
+    updateTodoItem.description = "updated description";
+    updateTodoItem.title = "updated title";
+    updateTodoItem.isDone = true;
+    const errorResponse = new HttpErrorResponse({
+      error: 'test 404 error',
+      status: 404, statusText: 'Not Found'
+    });
+    httpClientSpy.put.and.returnValue(asyncError(errorResponse));
+    service.UpdateTodoItem(updateTodoItem);
+    tick(50)
+    expect(httpClientSpy.put.calls.count()).toBe(1, 'one call');
+    expect(service.putResponseMessage).toBe("test 404 error", 'one call');
+  }));
+
+  function asyncError<T>(errorObject: any) {
+    return defer(() => Promise.reject(errorObject));
+  }
 });

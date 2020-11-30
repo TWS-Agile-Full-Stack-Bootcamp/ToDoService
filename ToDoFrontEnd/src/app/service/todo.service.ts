@@ -14,6 +14,7 @@ export class TodoService {
   private currentId: number = 0;
 
   private _todoItems: Array<ToDoItem>;
+  public putResponseMessage : string;
 
   constructor(private todoStore: TodoStoreService,
     private todoHttpClient: TodoHttpclientService) {
@@ -21,6 +22,7 @@ export class TodoService {
     this.updatingToDoItem = new ToDoItem(-1, "", "", false);
     this.selectedTodoItem = new ToDoItem(-1, "", "", false);
     this.currentId = this._todoItems.length;
+    this.putResponseMessage = "";
   }
 
   public get todoItems(): Array<ToDoItem> {
@@ -50,6 +52,8 @@ export class TodoService {
   public UpdateTodoItem(updateTodoItems: ToDoItem): void {
     this.todoHttpClient.Update(updateTodoItems).subscribe(todoItem =>{
       console.log(todoItem);
+    }, error =>{
+      this.putResponseMessage = error.error
     })
   }
 
