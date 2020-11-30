@@ -5,7 +5,7 @@ import { TodoitemDetailComponent } from './todoitem-detail/todoitem-detail.compo
 import { CreateTodoitemComponent } from './create-todoitem/create-todoitem.component';
 import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: "", redirectTo: '/index', pathMatch: 'full' },
   { path: "index", component: ListTodoitemComponent },
   { path: "create", component: CreateTodoitemComponent },
