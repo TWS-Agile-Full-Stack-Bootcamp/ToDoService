@@ -18,6 +18,10 @@ describe('TodoService', () => {
   it('should get all todoitems', () =>{
     expect(service.todoItems.length).toBe(5);
   });
+
+  it('should get todo-item by id', () =>{
+    
+  });
   
   it('should create todo-item', () =>{
     const newTodoItem = new ToDoItem(10, "new todo", "new todo description", false);
