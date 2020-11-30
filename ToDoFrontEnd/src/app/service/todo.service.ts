@@ -40,19 +40,10 @@ export class TodoService {
   }
 
   public UpdateTodoItem(updateTodoItems: ToDoItem): void {
-    // const foundTodoItem = this._todoItems.find(item => item.id === updateTodoItems.id);
-    // if (foundTodoItem) {
-    //   foundTodoItem.description = this.updatingToDoItem.description;
-    //   foundTodoItem.isDone = this.updatingToDoItem.isDone;
-    //   foundTodoItem.title = this.updatingToDoItem.title;
-    // }
-    this.todoStore.Update(updateTodoItems)
+    this.todoStore.Update(updateTodoItems);
   }
 
-  public DeleteTodoItem(id: number):void{    
-    const index = this._todoItems.findIndex(item => item.id === id);
-    if (index >= 0) {
-      this._todoItems.splice(index, 1);
-    }
+  public DeleteTodoItem(id: number):void{   
+    this.todoStore.Delete(id); 
   }
 }

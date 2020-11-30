@@ -39,4 +39,11 @@ export class TodoStoreService {
       foundTodoItem.title = updateTodoItem.title;
     }    
   }
+
+  public Delete(id: number): void{
+    const index = this._todoItems.findIndex(item => item.id === id);
+    if (index >= 0) {
+      this._todoItems.splice(index, 1);
+    }
+  }
 }
