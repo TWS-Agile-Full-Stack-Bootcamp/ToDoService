@@ -30,5 +30,6 @@ export class ListTodoitemComponent implements OnInit {
 
   public selectTodoItem(todoItem: ToDoItem): void{
     this.todoService.selectedTodoItem = todoItem;
+    this.todoService.updateSelectedTodoItem(todoItem);
   }
 }

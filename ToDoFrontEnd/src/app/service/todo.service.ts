@@ -60,11 +60,4 @@ export class TodoService {
       this._todoItems.splice(index, 1);
     }
   }
-
-  public GetTodoItemById(id: number): void{
-    const foundTodoItem = this._todoItems.find(item => item.id === id);
-    if (foundTodoItem) {
-      this.selectedTodoItem = foundTodoItem;
-    }
-  }
 }
