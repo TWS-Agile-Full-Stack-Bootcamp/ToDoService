@@ -46,4 +46,8 @@ export class TodoService {
   public DeleteTodoItem(id: number):void{   
     this.todoStore.Delete(id); 
   }
+
+  public SetSelectedTodoItemId(id: number):void{
+    this.selectedTodoItem = this.todoStore.FindById(id);
+  }
 }

@@ -20,16 +20,15 @@ export class ListTodoitemComponent implements OnInit {
     this.toDoItems = this.todoService.todoItems;
   }
 
-  public updateTodoItem(todoItem: ToDoItem): void {
-    this.todoService.SetUpdatingTodoItemId(todoItem.id);
+  public updateTodoItem(id: number): void {
+    this.todoService.SetUpdatingTodoItemId(id);
   }
 
-  public deleteTodoItem(id: number): void{
+  public deleteTodoItem(id: number): void {
     this.todoService.DeleteTodoItem(id);
   }
 
-  public selectTodoItem(todoItem: ToDoItem): void{
-    this.todoService.selectedTodoItem = todoItem;
-    this.todoService.UpdateTodoItem(todoItem);
+  public selectTodoItem(id: number): void {
+    this.todoService.SetSelectedTodoItemId(id);
   }
 }
