@@ -26,4 +26,8 @@ export class TodoStoreService {
     }
     return foundTodoItem;
   }
+
+  public Create(newTodoItem: ToDoItem): void{
+    this._todoItems.push(newTodoItem);
+  }
 }
