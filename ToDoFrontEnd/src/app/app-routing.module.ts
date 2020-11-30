@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: "index", component: ListTodoitemComponent },
   { path: "create", component: CreateTodoitemComponent },
   { path: "detail", component: TodoitemDetailComponent },
-  { path: "edit", component: UpdateTodoItemComponent },
+  { path: "edit/:id", component: UpdateTodoItemComponent },
 ];
 
 @NgModule({

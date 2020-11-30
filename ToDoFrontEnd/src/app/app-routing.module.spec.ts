@@ -40,4 +40,10 @@ describe("Router: App", () => {
     tick(50);
     expect(location.path()).toBe("/create");
   }));
+
+  it('navigate to "edit/1" redirects you to /edit/1', fakeAsync(() => {
+    router.navigate(["edit/1"]);
+    tick(50);
+    expect(location.path()).toBe("/edit/1");
+  }));
 });
