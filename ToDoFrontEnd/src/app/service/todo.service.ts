@@ -7,7 +7,6 @@ import { TodoStoreService } from './todo-store.service';
 })
 export class TodoService {
   
-  private updatingTodoItemId: number;
   public updatingToDoItem: ToDoItem;
   public selectedTodoItem: ToDoItem;
   private currentId: number = 0;
@@ -16,7 +15,6 @@ export class TodoService {
 
   constructor(private todoStore: TodoStoreService) {
     this._todoItems = todoStore.GetAll();
-    this.updatingTodoItemId = -1;
     this.updatingToDoItem = new ToDoItem(-1, "", "", false);
     this.selectedTodoItem = new ToDoItem(-1, "", "", false);
     this.currentId = this.todoItems.length;
@@ -27,8 +25,8 @@ export class TodoService {
   }
 
   public SetUpdatingTodoItemId(id: number): void {
-    this.updatingTodoItemId = id;
-    const foundTodoItem = this._todoItems.find(todoItem => todoItem.id === this.updatingTodoItemId);
+    const foundTodoItem = this.todoStore.FindById(id);
+    
     if (foundTodoItem !== undefined) {
       this.updatingToDoItem = Object.assign({}, foundTodoItem);
     }

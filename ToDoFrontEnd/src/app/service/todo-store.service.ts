@@ -6,7 +6,7 @@ import { ToDoItem } from '../model/ToDoItem';
 })
 export class TodoStoreService {
   private _todoItems: Array<ToDoItem>;
-  constructor() { 
+  constructor() {
     this._todoItems = new Array<ToDoItem>();
     this._todoItems.push(new ToDoItem(0, "Task1", "Task1 description", false));
     this._todoItems.push(new ToDoItem(1, "Task2", "Task2 description", false));
@@ -15,7 +15,15 @@ export class TodoStoreService {
     this._todoItems.push(new ToDoItem(4, "Task5", "Task5 description", false));
   }
 
-  public GetAll(): Array<ToDoItem>{
+  public GetAll(): Array<ToDoItem> {
     return this._todoItems;
+  }
+
+  public FindById(id: number): ToDoItem {
+    let foundTodoItem = this._todoItems.find(todoItem => todoItem.id === id);
+    if (foundTodoItem === undefined) {
+      foundTodoItem = new ToDoItem(-1, "", "", false);
+    }
+    return foundTodoItem;
   }
 }
