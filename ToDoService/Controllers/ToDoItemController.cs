@@ -56,14 +56,16 @@ namespace ToDoService.Controllers
             return CreatedAtAction(nameof(Get), new { id = toDoItem.Id }, toDoItem);
         }
 
-        [HttpPatch]
-        public ToDoItem Done(long id)
+        [HttpPut]
+        public ToDoItem Update(ToDoItem todoItem)
         {
             CheckAndThrowException();
-            var foundToDoItem = toDoItems.FirstOrDefault(todoItem => todoItem.Id == id);
+            var foundToDoItem = toDoItems.FirstOrDefault(item => item.Id == todoItem.Id);
             if (foundToDoItem != null)
             {
                 foundToDoItem.IsDone = true;
+                foundToDoItem.Description = todoItem.Description;
+                foundToDoItem.Title = todoItem.Title;
             }
 
             return foundToDoItem;
