@@ -15,11 +15,11 @@ describe('TodoService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get all todoitems', () =>{
+  it('should get all todoitems', () => {
     expect(service.todoItems.length).toBe(5);
   });
 
-  it('should create todo-item via mockhttp', () =>{
+  it('should create todo-item via mockhttp', () => {
     const newTodoItem = new ToDoItem(10, "new todo", "new todo description", false);
     service.Create(newTodoItem);
     expect(service.todoItems.length).toBe(6);
@@ -28,9 +28,9 @@ describe('TodoService', () => {
     expect(service.todoItems[5].description === newTodoItem.description);
     expect(service.todoItems[5].isDone === newTodoItem.isDone);
   });
-  
-  it('should update todo-item', () =>{
-    const updateTodoItem   = service.todoItems[0];
+
+  it('should update todo-item', () => {
+    const updateTodoItem = service.todoItems[0];
     updateTodoItem.description = "updated description";
     updateTodoItem.title = "updated title";
     updateTodoItem.isDone = true;
@@ -39,5 +39,17 @@ describe('TodoService', () => {
     expect(service.todoItems[0].description).toBe(updateTodoItem.description);
     expect(service.todoItems[0].title).toBe(updateTodoItem.title);
     expect(service.todoItems[0].isDone).toBe(updateTodoItem.isDone);
+  });
+
+  it('should delete todo item', () => {
+    const id = service.todoItems[0].id;
+    service.DeleteTodoItem(id);
+    expect(service.todoItems.length).toBe(4);
+  });
+
+  it('should get special todo item', () => {
+    const id = service.todoItems[4].id;
+    service.SetSelectedTodoItemId(id);
+    expect(service.selectedTodoItem.id).toBe(id);
   });
 });
